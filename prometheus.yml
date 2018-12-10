@@ -30,4 +30,4 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
     - targets:
-      - test-5-1
+      - test-5-1.lax.liferay.com
