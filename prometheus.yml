@@ -31,4 +31,3 @@ scrape_configs:
     static_configs:
     - targets:
       - test-5-1
-      - test-5-2
