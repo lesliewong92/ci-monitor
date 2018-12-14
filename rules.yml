@@ -9,9 +9,17 @@ groups:
     - alert: NodeWorrisomeCapacity
       expr: jenkins_node_offline_value > (jenkins_node_count_value * 0.3)
       for: 5m
+      labels:
+        severity: ticket
     - alert: NodeLowCapacity
       expr: jenkins_node_online_value < (jenkins_node_count_value * 0.5)
       for: 5m
+      labels:
+        severity: page
     - alert: NodeTestCapacity
-      expr: jenkins_node_online_value < (jenkins_node_count_value - 2)
+      expr: jenkins_node_offline_value >= 1
       for: 5m
+      labels:
+        severity: page
+      annotations:
+        summary: '{{printf "%.0f" $value}} nodes are offline.'
